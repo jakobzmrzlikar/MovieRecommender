@@ -1,5 +1,8 @@
 # Secet keys and passwords
-/secrets.json
+secrets.json
+
+# Requirements help folder
+requirements.in
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
