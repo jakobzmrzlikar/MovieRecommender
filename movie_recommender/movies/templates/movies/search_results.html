@@ -1,0 +1,7 @@
+<h1>Search Results</h1>
+
+<ul>
+    {% for movie in movies %}
+    <a href="{% url 'movies:info' title=movie.title %}">{{movie.title}}</a>
+    {% endfor %}
+</ul>

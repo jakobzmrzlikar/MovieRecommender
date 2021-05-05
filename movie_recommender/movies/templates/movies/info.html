@@ -1,0 +1,21 @@
+<h1>{{ movie.title }}</h1>
+
+<ul>
+    <li>Original title: {{ movie.original_title }}</li>
+    <li>Year: {{ movie.year }}</li>
+    <li>Date published: {{ movie.date_published }}</li>
+    <li>genre: {{ movie.genre }}</li>
+    <li>Duration: {{ movie.duration }}</li>
+    <li>Country: {{ movie.country }}</li>
+    <li>Language: {{ movie.language }}</li>
+    <li>Director: {{ movie.director }}</li>
+</ul>
+
+Rate this movie:
+<form action="" method="GET">
+    <input name="rating" type="number" min="1" max="10" step="1">
+</form>
+
+<a href="{% url 'movies:home' %}">Home</a>
+<br>
+<a href="{% url 'logout' %}">Log out</a>

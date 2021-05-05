@@ -1,0 +1,7 @@
+<br>Hello {{user}}</br>
+
+<form action="{% url 'movies:search_results' %}" method="GET">
+    <input name="search" type="text" placeholder="Search">
+</form>
+
+<a href="{% url 'logout' %}">Log out</a>
