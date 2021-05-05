@@ -7,5 +7,6 @@ app_name = 'movies'
 urlpatterns = [
     path('', views.index, name="home"),
     path('search/', views.search, name="search_results"),
-    path('info/<str:title>/', views.info, name="info")
+    path('info/<str:title>/', views.info, name="info"),
+    path('rate/<str:title>/', views.rate, name="rate")
 ]

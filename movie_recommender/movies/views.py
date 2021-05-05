@@ -23,12 +23,25 @@ def search(request):
 
 @login_required
 def info(request, title):
+    user = request.user
+    movie = Movie.objects.filter(title__search=title)[0]
+    View.objects.create(movie=movie, user=user)
     context = {}
-    context['movie'] = Movie.objects.filter(title__search=title)[0]
+    context['movie'] = movie
     return render(request, 'movies/info.html', context)
 
 
 @login_required
-def rate(request):
+def rate(request, title):
+    movie = Movie.objects.filter(title__search=title)[0]
+    user = request.user
     rating = request.GET.get('rating')
-    Rating.objects.create()
+    Rating.objects.create(
+        movie=movie,
+        user=user,
+        num_rating=rating,
+        text_rating=''
+    )
+    context = {}
+    context['movie'] = movie
+    return render(request, 'movies/info.html', context)
