@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'accounts',
     'movies',
+    'recommender',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,7 @@ STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'movies:home'
 LOGOUT_REDIRECT_URL = 'movies:home'
+
+FIXTURE_DIRS = [
+    os.path.join(BASE_DIR, "../data/fixtures/")
+]
