@@ -51,7 +51,8 @@ with open(ratings_file) as r:
                 fields["movie"] = movie
                 fields["user"] = users[math.floor(random.random()*len(users))]["pk"]
                 rand = math.floor(random.normal(loc=mean, scale=1))
-                fields["num_rating"] = min(rand, 10)
+                rand = min(max(1, rand), 10)
+                fields["num_rating"] = rand
                 tmp['fields'] = fields
                 serialized_ratings.append(tmp)
 
