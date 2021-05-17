@@ -1,4 +1,4 @@
-# movie_recommender
+# MovieRecommender
 
 A (very simple) movie search and recommendation web app based on Django.
 
