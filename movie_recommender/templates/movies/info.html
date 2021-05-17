@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+
 <h1>{{ movie.title }}</h1>
 
 <ul>
@@ -16,6 +20,4 @@ Rate this movie:
     <input name="rating" type="number" min="1" max="10" step="1">
 </form>
 
-<a href="{% url 'movies:home' %}">Home</a>
-<br>
-<a href="{% url 'logout' %}">Log out</a>
+{% endblock %}
