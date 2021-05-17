@@ -66,8 +66,11 @@ class TopRatedRecommender(object):
 
     
     def recommend(self, user_id, n=10):
-        top_rated = Rating.objects.order_by('-num_rating')[:n]
-        return [rating['movie'] for rating in top_rated]
+        movies = []
+        top_rated = Rating.objects.values('movie').annotate(avg=Avg('num_rating')).order_by('-avg')[:n]
+        for rating in top_rated:
+            movies.append(Movie.objects.filter(id=rating['movie'])[0])
+        return movies
 
 
 class MostViewedRecommender(object):
