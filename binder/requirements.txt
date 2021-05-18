@@ -10,7 +10,7 @@ django==3.2
     # via -r requirements.in
 joblib==1.0.1
     # via scikit-surprise
-numpy==1.19.5
+numpy==1.20.3
     # via
     #   -r requirements.in
     #   pandas
