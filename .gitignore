@@ -1,5 +1,6 @@
 # Secet keys and passwords
 secrets.json
+local_settings.py
 
 # Requirements help folder
 requirements.in
