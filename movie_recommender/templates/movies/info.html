@@ -5,19 +5,48 @@
 <h1>{{ movie.title }}</h1>
 
 <ul>
-    <li>Original title: {{ movie.original_title }}</li>
+    <li>Original title: {{ movie.original_title }}</li>    
     <li>Year: {{ movie.year }}</li>
     <li>Date published: {{ movie.date_published }}</li>
-    <li>genre: {{ movie.genre }}</li>
+    <li>Genre: {{ movie.genre }}</li>
     <li>Duration: {{ movie.duration }}</li>
     <li>Country: {{ movie.country }}</li>
     <li>Language: {{ movie.language }}</li>
     <li>Director: {{ movie.director }}</li>
 </ul>
 
-Rate this movie:
+{% if has_ratings %}
+    <b>Average rating: {{ avg_rating }}</b>
+    {% else %}
+    <b>This movie hasn't been rated yet!</b>
+{% endif %}
+<br>
+<br>
+{% if has_comments %}
+    <h5>Here are some of the recent comments about this movie:</h5>
+    <ul>
+        {% for comment in comments %}
+        <li>{{ comment }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+{% endif %}
+
+<h5>Already seen this movie? Help us by rating it!</h5>
+
 <form action="{% url 'movies:rate' title=movie.title %}" method="GET">
-    <input name="rating" type="number" min="1" max="10" step="1">
+    <label for="num_rating">Give this movie a rating:</label>
+    <input id="num_rating" name="num_rating" class="form-control" type="number" min="1" max="10" step="1" placeholder="eg: 7">
+    <br>
+    <label for="text_rating">Tell us your thoughts about this movie:</label>
+    <input id="text_rating" name="text_rating" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Your opinion">
+    <br>
+    <input type="submit" class="btn btn-primary btn-block btn-lg" value="Submit">
 </form>
+
+{% if rated %}
+    <br>
+    <p>Thanks for rating this movie!</p>
+{% endif %}
 
 {% endblock %}
