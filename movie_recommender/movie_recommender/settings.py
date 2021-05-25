@@ -17,6 +17,7 @@ from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+FORCE_SCRIPT_NAME = os.environ.get('DJANGO_URL', None)
 DB_PORT = os.environ.get('POSTGRES_PORT', 5432)
 
 # Quick-start development settings - unsuitable for production
@@ -28,7 +29,7 @@ SECRET_KEY = 'yj7_p9zt4d6+if4+5!1@9!#b5k6iz(b_(h@4g^yr0v_5uw4&*d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -131,8 +132,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = '/static/'
+if FORCE_SCRIPT_NAME:
+    STATIC_URL = FORCE_SCRIPT_NAME + 'static/'
+    LOGIN_URL = FORCE_SCRIPT_NAME + 'accounts/login/'
+else:
+    STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = 'movies:home'
 LOGOUT_REDIRECT_URL = 'movies:home'
