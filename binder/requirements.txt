@@ -18,6 +18,8 @@ numpy==1.20.3
     #   scipy
 pandas==1.1.5
     # via -r requirements.in
+psycopg2==2.8.6
+    # via -r requirements.in
 python-dateutil==2.8.1
     # via pandas
 pytz==2021.1
@@ -36,5 +38,5 @@ sqlparse==0.4.1
     # via django
 typing-extensions==3.7.4.3
     # via asgiref
-jupyter-server-proxy
-psycopg2
+jupyter-server-proxy==3.0.2
+    # via -r requirements.in
