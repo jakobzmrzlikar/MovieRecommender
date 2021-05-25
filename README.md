@@ -18,3 +18,6 @@ After installing all required dependencies, simply navigate to the project direc
 cd movie_recommender/
 python  manage.py runserver
 ```
+
+## Online demo
+An online demo version running on [Binder](https://mybinder.org/) is also available [here](https://mybinder.org/v2/gh/jakobzmrzlikar/MovieRecommender/main?urlpath=proxy/8000/).
